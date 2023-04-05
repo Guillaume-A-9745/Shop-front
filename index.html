@@ -48,14 +48,17 @@
     <main>
         <div class="container-fluid bagroundMain">
             <div class="container siteWidth bg-white">
+                <!-- titre principal -->
                 <div class="text-center">
-                    <h1>Bienvenu sur MyShop</h1>
+                    <h1>Welcome to MyShop</h1>
                 </div>
+                <!-- début tableau articles -->
                 <div>
                     <div>
                         <div class="text-center">
-                            <h2>Liste des articles</h2>
+                            <h2>List of items</h2>
                         </div>
+                        <!-- tableau des articles -->
                         <table class="table table-striped">
                             <thead>
                                 <tr>
@@ -72,13 +75,97 @@
                         </table>
                     </div>
                 </div>
+                <!-- fin tableau articles -->
+                <br><br>
+                <hr><br><br>
+                <!-- bébut panier -->
+                <div>
+                    <div>
+                        <div class="text-center">
+                            <h2>Your basket</h2>
+                        </div>
+                        <!-- tableau panier -->
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col" width="10%">ID</th>
+                                    <th scope="col" width="25%">NAME</th>
+                                    <th scope="col" width="25%">BRAND</th>
+                                    <th scope="col" width="20%">PRICE</th>
+                                    <th scope="col" width="20%">QUANTITY</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tBodyPanier">
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    <th scope="col" class="text-end">TOTAL</th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <!-- fin panier -->
+                <br><br>
+                <hr><br><br>
+                <!-- début formulaire -->
+                <div class="pb-3">
+                    <div>
+                        <div class="text-center">
+                            <h2>Your details</h2>
+                        </div>
+                        <form>
+                            <div class="mb-3 d-flex">
+                                <div class="col-6 me-1">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="name">
+                                </div>
+                                <div class="col-6 ms-1">
+                                    <label for="firstname" class="form-label">Firstname</label>
+                                    <input type="text" class="form-control" id="firstname">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="adress" class="form-label">Adress</label>
+                                <input type="text" class="form-control" id="adress">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">validate the order</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- fin formulaire -->
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">the order is saved</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                delivery will be made as soon as possible
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
     </main>
 
     <footer>
-        <div class="container-fluid bg-dark text-white p-0 m-0">
+        <div class="container-fluid bg-dark text-white py-5 m-0">
             <div class="container siteWidth d-flex flex-column text-end">
                 <a href="#">Conditions générales de vents</a>
                 <a href="#">Mention légales</a>
