@@ -1,0 +1,15 @@
+
+.siteWidth {
+    width: auto;
+}
+
+.bagroundMain {
+    background-color: #D8D9AD;
+}
+
+
+@media (min-width: 730px) { 
+    .siteWidth {
+        width: 730px;
+    }
+}
