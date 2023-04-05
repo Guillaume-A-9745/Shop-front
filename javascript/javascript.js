@@ -25,127 +25,176 @@ smartphone.addEventListener("click", showSmartphone);
 tablet.addEventListener("click", showTablet);
 pc.addEventListener("click", showPc);
 
-//affichage dans le tableau
+//affichage de tous dans le tableau
+articles.forEach((element) => {
+  let newTAbleRow = document.createElement("tr");
+  let newTableColunm1 = document.createElement("th");
+  let newTableColunm2 = document.createElement("th");
+  let newTableColunm3 = document.createElement("th");
+  let newTableColunm4 = document.createElement("th");
+  let newTableColunm5 = document.createElement("th");
+  newTableColunm5.setAttribute("class", "col-2");
+  let newTableColunm6 = document.createElement("th");
+
+  //input de quantité
+  let newInput = document.createElement("input");
+  newInput.setAttribute("type", "number");
+  newInput.setAttribute("class", "form-control");
+  newInput.style.fontSize = "12px";
+  //bouton ajouter au panier
+  let newbtn = document.createElement("button");
+  newbtn.setAttribute("type", "button");
+  newbtn.setAttribute("class", "btn btn-primary");
+  newbtn.innerHTML = "Ajouter au panier";
+  newbtn.style.fontSize = "12px";
+
+  let tableBody = document.querySelector("#tBody");
+  newTAbleRow.appendChild(newTableColunm1);
+  newTAbleRow.appendChild(newTableColunm2);
+  newTAbleRow.appendChild(newTableColunm3);
+  newTAbleRow.appendChild(newTableColunm4);
+  newTAbleRow.appendChild(newTableColunm5);
+  newTAbleRow.appendChild(newTableColunm6);
+  newTableColunm1.innerHTML = element.id;
+  newTableColunm2.innerHTML = element.name;
+  newTableColunm3.innerHTML = element.brand;
+  newTableColunm4.innerHTML = element.price;
+  newTableColunm5.appendChild(newInput);
+  newTableColunm6.appendChild(newbtn);
+  tableBody.appendChild(newTAbleRow);
+});
+//affichage des smartphones dans le tableau
 function showSmartphone() {
-    articles.forEach((element) => {
-  if (element.category == "Smartphone") {
-    let newTAbleRow = document.createElement("tr");
-    let newTableColunm1 = document.createElement("th");
-    let newTableColunm2 = document.createElement("th");
-    let newTableColunm3 = document.createElement("th");
-    let newTableColunm4 = document.createElement("th");
-    let newTableColunm5 = document.createElement("th");
-    newTableColunm5.setAttribute("class", "col-2");
-    let newTableColunm6 = document.createElement("th");
-
-    //input de quantité
-    let newInput = document.createElement("input");
-    newInput.setAttribute("type", "number");
-    newInput.setAttribute("class", "form-control");
-    newInput.style.fontSize = "12px";
-    //bouton ajouter au panier
-    let newbtn = document.createElement("button");
-    newbtn.setAttribute("type", "button");
-    newbtn.setAttribute("class", "btn btn-primary");
-    newbtn.innerHTML = "Ajouter au panier";
-    newbtn.style.fontSize = "12px";
-
     let tableBody = document.querySelector("#tBody");
-    newTAbleRow.appendChild(newTableColunm1);
-    newTAbleRow.appendChild(newTableColunm2);
-    newTAbleRow.appendChild(newTableColunm3);
-    newTAbleRow.appendChild(newTableColunm4);
-    newTAbleRow.appendChild(newTableColunm5);
-    newTAbleRow.appendChild(newTableColunm6);
-    newTableColunm1.innerHTML = element.id;
-    newTableColunm2.innerHTML = element.name;
-    newTableColunm3.innerHTML = element.brand;
-    newTableColunm4.innerHTML = element.price;
-    newTableColunm5.appendChild(newInput);
-    newTableColunm6.appendChild(newbtn);
-    tableBody.appendChild(newTAbleRow);
-  }
-});
+    while (tableBody.firstChild) {
+      tableBody.removeChild(tableBody.lastChild);
+    }
+  articles.forEach((element) => {
+    if (element.category == "Smartphone") {
+      let newTAbleRow = document.createElement("tr");
+      let newTableColunm1 = document.createElement("th");
+      let newTableColunm2 = document.createElement("th");
+      let newTableColunm3 = document.createElement("th");
+      let newTableColunm4 = document.createElement("th");
+      let newTableColunm5 = document.createElement("th");
+      newTableColunm5.setAttribute("class", "col-2");
+      let newTableColunm6 = document.createElement("th");
+
+      //input de quantité
+      let newInput = document.createElement("input");
+      newInput.setAttribute("type", "number");
+      newInput.setAttribute("class", "form-control");
+      newInput.style.fontSize = "12px";
+      //bouton ajouter au panier
+      let newbtn = document.createElement("button");
+      newbtn.setAttribute("type", "button");
+      newbtn.setAttribute("class", "btn btn-primary");
+      newbtn.innerHTML = "Ajouter au panier";
+      newbtn.style.fontSize = "12px";
+
+      newTAbleRow.appendChild(newTableColunm1);
+      newTAbleRow.appendChild(newTableColunm2);
+      newTAbleRow.appendChild(newTableColunm3);
+      newTAbleRow.appendChild(newTableColunm4);
+      newTAbleRow.appendChild(newTableColunm5);
+      newTAbleRow.appendChild(newTableColunm6);
+      newTableColunm1.innerHTML = element.id;
+      newTableColunm2.innerHTML = element.name;
+      newTableColunm3.innerHTML = element.brand;
+      newTableColunm4.innerHTML = element.price;
+      newTableColunm5.appendChild(newInput);
+      newTableColunm6.appendChild(newbtn);
+      tableBody.appendChild(newTAbleRow);
+    }
+  });
 }
+//affichage des tablets dans le tableau
 function showTablet() {
-    articles.forEach((element) => {
-  if (element.category == "Tablet") {
-    let newTAbleRow = document.createElement("tr");
-    let newTableColunm1 = document.createElement("th");
-    let newTableColunm2 = document.createElement("th");
-    let newTableColunm3 = document.createElement("th");
-    let newTableColunm4 = document.createElement("th");
-    let newTableColunm5 = document.createElement("th");
-    newTableColunm5.setAttribute("class", "col-2");
-    let newTableColunm6 = document.createElement("th");
-
-    //input de quantité
-    let newInput = document.createElement("input");
-    newInput.setAttribute("type", "number");
-    newInput.setAttribute("class", "form-control");
-    newInput.style.fontSize = "12px";
-    //bouton ajouter au panier
-    let newbtn = document.createElement("button");
-    newbtn.setAttribute("type", "button");
-    newbtn.setAttribute("class", "btn btn-primary");
-    newbtn.innerHTML = "Ajouter au panier";
-    newbtn.style.fontSize = "12px";
-
     let tableBody = document.querySelector("#tBody");
-    newTAbleRow.appendChild(newTableColunm1);
-    newTAbleRow.appendChild(newTableColunm2);
-    newTAbleRow.appendChild(newTableColunm3);
-    newTAbleRow.appendChild(newTableColunm4);
-    newTAbleRow.appendChild(newTableColunm5);
-    newTAbleRow.appendChild(newTableColunm6);
-    newTableColunm1.innerHTML = element.id;
-    newTableColunm2.innerHTML = element.name;
-    newTableColunm3.innerHTML = element.brand;
-    newTableColunm4.innerHTML = element.price;
-    newTableColunm5.appendChild(newInput);
-    newTableColunm6.appendChild(newbtn);
-    tableBody.appendChild(newTAbleRow);
-  }
-});
+    while (tableBody.firstChild) {
+      tableBody.removeChild(tableBody.lastChild);
+    }
+  articles.forEach((element) => {
+    if (element.category == "Tablet") {
+      let newTAbleRow = document.createElement("tr");
+      let newTableColunm1 = document.createElement("th");
+      let newTableColunm2 = document.createElement("th");
+      let newTableColunm3 = document.createElement("th");
+      let newTableColunm4 = document.createElement("th");
+      let newTableColunm5 = document.createElement("th");
+      newTableColunm5.setAttribute("class", "col-2");
+      let newTableColunm6 = document.createElement("th");
+
+      //input de quantité
+      let newInput = document.createElement("input");
+      newInput.setAttribute("type", "number");
+      newInput.setAttribute("class", "form-control");
+      newInput.style.fontSize = "12px";
+      //bouton ajouter au panier
+      let newbtn = document.createElement("button");
+      newbtn.setAttribute("type", "button");
+      newbtn.setAttribute("class", "btn btn-primary");
+      newbtn.innerHTML = "Ajouter au panier";
+      newbtn.style.fontSize = "12px";
+
+      newTAbleRow.appendChild(newTableColunm1);
+      newTAbleRow.appendChild(newTableColunm2);
+      newTAbleRow.appendChild(newTableColunm3);
+      newTAbleRow.appendChild(newTableColunm4);
+      newTAbleRow.appendChild(newTableColunm5);
+      newTAbleRow.appendChild(newTableColunm6);
+      newTableColunm1.innerHTML = element.id;
+      newTableColunm2.innerHTML = element.name;
+      newTableColunm3.innerHTML = element.brand;
+      newTableColunm4.innerHTML = element.price;
+      newTableColunm5.appendChild(newInput);
+      newTableColunm6.appendChild(newbtn);
+      tableBody.appendChild(newTAbleRow);
+    }
+  });
 }
+//affichage des pc dans le tableau
 function showPc() {
-    articles.forEach((element) => {
-  if (element.category == "PC") {
-    let newTAbleRow = document.createElement("tr");
-    let newTableColunm1 = document.createElement("th");
-    let newTableColunm2 = document.createElement("th");
-    let newTableColunm3 = document.createElement("th");
-    let newTableColunm4 = document.createElement("th");
-    let newTableColunm5 = document.createElement("th");
-    newTableColunm5.setAttribute("class", "col-2");
-    let newTableColunm6 = document.createElement("th");
-
-    //input de quantité
-    let newInput = document.createElement("input");
-    newInput.setAttribute("type", "number");
-    newInput.setAttribute("class", "form-control");
-    newInput.style.fontSize = "12px";
-    //bouton ajouter au panier
-    let newbtn = document.createElement("button");
-    newbtn.setAttribute("type", "button");
-    newbtn.setAttribute("class", "btn btn-primary");
-    newbtn.innerHTML = "Ajouter au panier";
-    newbtn.style.fontSize = "12px";
-
     let tableBody = document.querySelector("#tBody");
-    newTAbleRow.appendChild(newTableColunm1);
-    newTAbleRow.appendChild(newTableColunm2);
-    newTAbleRow.appendChild(newTableColunm3);
-    newTAbleRow.appendChild(newTableColunm4);
-    newTAbleRow.appendChild(newTableColunm5);
-    newTAbleRow.appendChild(newTableColunm6);
-    newTableColunm1.innerHTML = element.id;
-    newTableColunm2.innerHTML = element.name;
-    newTableColunm3.innerHTML = element.brand;
-    newTableColunm4.innerHTML = element.price;
-    newTableColunm5.appendChild(newInput);
-    newTableColunm6.appendChild(newbtn);
-    tableBody.appendChild(newTAbleRow);
-  }
-});
+    while (tableBody.firstChild) {
+      tableBody.removeChild(tableBody.lastChild);
+    }
+  articles.forEach((element) => {
+    if (element.category == "PC") {
+      let newTAbleRow = document.createElement("tr");
+      let newTableColunm1 = document.createElement("th");
+      let newTableColunm2 = document.createElement("th");
+      let newTableColunm3 = document.createElement("th");
+      let newTableColunm4 = document.createElement("th");
+      let newTableColunm5 = document.createElement("th");
+      newTableColunm5.setAttribute("class", "col-2");
+      let newTableColunm6 = document.createElement("th");
+
+      //input de quantité
+      let newInput = document.createElement("input");
+      newInput.setAttribute("type", "number");
+      newInput.setAttribute("class", "form-control");
+      newInput.style.fontSize = "12px";
+      //bouton ajouter au panier
+      let newbtn = document.createElement("button");
+      newbtn.setAttribute("type", "button");
+      newbtn.setAttribute("class", "btn btn-primary");
+      newbtn.innerHTML = "Ajouter au panier";
+      newbtn.style.fontSize = "12px";
+
+      newTAbleRow.appendChild(newTableColunm1);
+      newTAbleRow.appendChild(newTableColunm2);
+      newTAbleRow.appendChild(newTableColunm3);
+      newTAbleRow.appendChild(newTableColunm4);
+      newTAbleRow.appendChild(newTableColunm5);
+      newTAbleRow.appendChild(newTableColunm6);
+      newTableColunm1.innerHTML = element.id;
+      newTableColunm2.innerHTML = element.name;
+      newTableColunm3.innerHTML = element.brand;
+      newTableColunm4.innerHTML = element.price;
+      newTableColunm5.appendChild(newInput);
+      newTableColunm6.appendChild(newbtn);
+      tableBody.appendChild(newTAbleRow);
+    }
+  });
 }
