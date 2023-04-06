@@ -89,6 +89,7 @@ function addToCart(index, quantity) {
   let cartItems = document.querySelector("#productsCard");
   var cartItemIds = cartItems.querySelectorAll(".cart-item-id");
   var itemExists = false;
+
   // Vérifier si le produit est déjà dans le panier
   for (let i = 0; i < cartItemIds.length; i++) {
     if (cartItemIds[i].textContent == article.id) {
@@ -116,17 +117,29 @@ function addToCart(index, quantity) {
       .insertAdjacentHTML("beforeend", tableItems);
   }
   updateTotal();
+
+  // gestion de la visibilité sur le panier
+  let BasketSection = document.querySelector("#BasketSection");
+  BasketSection.style.display = "inline";
 }
 
 // Fonction pour mettre à jour le total du panier
 function updateTotal() {
   let total = 0;
-  let cartItems= document.querySelectorAll('#productsCard tr');
+  let cartItems = document.querySelectorAll("#productsCard tr");
 
   for (let i = 0; i < cartItems.length; i++) {
-    let price = parseInt(cartItems[i].querySelectorAll('td')[3].textContent);
-    var quantity = parseInt(cartItems[i].querySelectorAll('td')[4].textContent);
+    let price = parseInt(cartItems[i].querySelectorAll("td")[3].textContent);
+    var quantity = parseInt(cartItems[i].querySelectorAll("td")[4].textContent);
     total += price * quantity;
   }
-  document.querySelector('.cart-total').textContent = total;
+  document.querySelector(".cart-total").textContent = total;
 }
+
+// gestion de la visibilité sur le formulaire
+let formSection = document.querySelector("#formSection");
+let btnValidateOrder = document.querySelector("#btnValidateOrder");
+function displayForm() {
+  formSection.style.display = "inline";
+}
+btnValidateOrder.addEventListener("click", displayForm);

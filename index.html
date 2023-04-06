@@ -46,7 +46,7 @@
     </header>
 
     <main>
-        <div class="container-fluid bagroundMain">
+        <div class="container-fluid py-3 bagroundMain">
             <div class="container siteWidth bg-white">
                 <!-- titre principal -->
                 <div class="text-center">
@@ -74,12 +74,14 @@
                             </tbody>
                         </table>
                     </div>
+                    
                 </div>
                 <!-- fin tableau articles -->
-                <br><br>
-                <hr><br><br>
+                
+                
                 <!-- bébut panier -->
-                <div>
+                <div class="pb-3 divHidden" id="BasketSection">
+                    <br><br><hr><br><br>
                     <div>
                         <div class="text-center">
                             <h2>Your basket</h2>
@@ -108,12 +110,18 @@
                             </tfoot>
                         </table>
                     </div>
+                    <div>
+                        <div class="text-end">
+                            <button id="btnValidateOrder" type="button" class="btn btn-primary">Validate the order</button>
+                        </div>
+                    </div>
                 </div>
                 <!-- fin panier -->
-                <br><br>
-                <hr><br><br>
+                
+                
                 <!-- début formulaire -->
-                <div class="pb-3">
+                <div class="pb-3 divHidden" id="formSection">
+                    <br><br><hr><br><br>
                     <div>
                         <div class="text-center">
                             <h2>Your details</h2>
