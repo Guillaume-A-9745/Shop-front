@@ -28,15 +28,18 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="index.html">HOME</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link categories" data-category="Smartphone">SMARTPHONE</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link categories" data-category="Tablet">TABLET</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link categories" data-category="PC">PC</a>
-                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                      CATEGORIES
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                      <li><a class="nav-link" id="allCategories" data-category="allCategories">ALL</a></li>
+                                      <li><hr class="dropdown-divider"></li>
+                                      <li><a class="nav-link categories" data-category="Smartphone">SMARTPHONE</a></li>
+                                      <li><a class="nav-link categories" data-category="Tablet">TABLET</a></li>
+                                      <li><a class="nav-link categories" data-category="PC">PC</a></li>
+                                    </ul>
+                                  </li>
                             </ul>
                         </div>
                     </div>
@@ -146,24 +149,25 @@
                                 <input type="email" class="form-control" id="email">
                             </div>
                             <div class="d-flex justify-content-center">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">validate the order</button>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalReturn" id="btnPayOrder">Pay the order</button>
                             </div>
                         </form>
                     </div>
                 </div>
                 <!-- fin formulaire -->
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                <div class="modal fade" id="modalReturn" tabindex="-1" aria-labelledby="modalReturnOrder"
                     aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">the order is saved</h5>
+                                <h5 class="modal-title" id="modalReturnOrder">Your order is saved</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                delivery will be made as soon as possible
+                                <p>Dear <span id="returnName"></span> , thank you for your trust.</p>
+                                <p>Will be made as soon as possible</p>
                             </div>
                         </div>
                     </div>

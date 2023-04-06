@@ -14,38 +14,45 @@ let articles = [s9, s10, iphone, f756u, galaxyTab, ipad];
 /* --------------gestion du tableau d'articles------------------------------ */
 
 //affichage de tous dans le tableau
-let tableItems = "";
-for (let i = 0; i < articles.length; i++) {
-  tableItems += "<tr>";
-  tableItems += "<td>" + articles[i].id + "</td>";
-  tableItems += "<td>" + articles[i].name + "</td>";
-  tableItems += "<td>" + articles[i].brand + "</td>";
-  tableItems += "<td>" + articles[i].price + "</td>";
-  tableItems += "<td>";
-  tableItems +=
-    '<input type="number" class="form-control quantity-input" value="1">';
-  tableItems += "</td>";
-  tableItems += "<td>";
-  tableItems +=
-    '<button class="btn btn-success add-to-cart" data-product="' +
-    i +
-    '">Add to Cart</button>';
-  tableItems += "</td>";
-  tableItems += "</tr>";
-  document.querySelector("#products").innerHTML = tableItems;
+function showProducts() {
+  let tableItems = "";
+  for (let i = 0; i < articles.length; i++) {
+    tableItems += "<tr>";
+    tableItems += "<td>" + articles[i].id + "</td>";
+    tableItems += "<td>" + articles[i].name + "</td>";
+    tableItems += "<td>" + articles[i].brand + "</td>";
+    tableItems += "<td>" + articles[i].price + "</td>";
+    tableItems += "<td>";
+    tableItems +=
+      '<input type="number" class="form-control quantity-input" value="1">';
+    tableItems += "</td>";
+    tableItems += "<td>";
+    tableItems +=
+      '<button class="btn btn-success add-to-cart" data-product="' +
+      i +
+      '">Add to Cart</button>';
+    tableItems += "</td>";
+    tableItems += "</tr>";
+    document.querySelector("#products").innerHTML = tableItems;
+  }
 }
+showProducts();
+
+// Fonction pour afficher tous les produits des catégories
+let AllCategories = document.getElementById("allCategories");
+AllCategories.addEventListener("click", showProducts);
 
 // Fonction pour afficher les produits triés par catégorie
 let categories = document.getElementsByClassName("categories");
 for (let i = 0; i < categories.length; i++) {
   categories[i].addEventListener("click", function () {
     let category = this.getAttribute("data-category");
-    showProducts(category);
+    showProductsByCat(category);
   });
 }
 
 // Affichage des articles par catégories dans le tableau
-function showProducts(category) {
+function showProductsByCat(category) {
   let tableItems = "";
   for (let i = 0; i < articles.length; i++) {
     if (articles[i].category === category) {
@@ -60,9 +67,9 @@ function showProducts(category) {
       tableItems += "</td>";
       tableItems += "<td>";
       tableItems +=
-        '<button class="btn btn-success add-to-cart data-product="' +
+        '<button class="btn btn-success add-to-cart" data-product="' +
         i +
-        '"">Add to Cart</button>';
+        '">Add to Cart</button>';
       tableItems += "</td>";
       tableItems += "</tr>";
     }
@@ -102,6 +109,7 @@ function addToCart(index, quantity) {
       break;
     }
   }
+
   // Créer un nouvel élément de panier si le produit n'existe pas encore
   if (!itemExists) {
     let tableItems = "";
@@ -136,6 +144,8 @@ function updateTotal() {
   document.querySelector(".cart-total").textContent = total;
 }
 
+/* --------------gestion du fomulaire------------------------------ */
+
 // gestion de la visibilité sur le formulaire
 let formSection = document.querySelector("#formSection");
 let btnValidateOrder = document.querySelector("#btnValidateOrder");
@@ -143,3 +153,15 @@ function displayForm() {
   formSection.style.display = "inline";
 }
 btnValidateOrder.addEventListener("click", displayForm);
+
+//gestion interaction entre formulaire et modal
+let btnPayOrder = document.querySelector('#btnPayOrder');
+
+
+btnPayOrder.addEventListener("click", addToModal);
+function addToModal() {
+  let name = document.querySelector('#name').value;
+  let firstname = document.querySelector('#firstname').value;
+  let returnName = document.querySelector('#returnName');
+  returnName.innerHTML = firstname + " " + name;
+}
